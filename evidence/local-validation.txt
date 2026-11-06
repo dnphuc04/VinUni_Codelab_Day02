@@ -1,0 +1,18 @@
+Local validation — 2026-11-06 (Asia/Bangkok)
+Python: project .venv/Scripts/python.exe
+pytest: 22 passed in 0.04s
+Autograder section A: 5.00/5.00 (four required deliverables exist)
+Autograder --check-code-1: PASS
+Autograder --check-code-2: PASS
+Autograder --check-code-3: PASS
+Live Gemini final: 3/3 required adversarial cases; 9/9 extended structure/action checks.
+Model: gemini-3.1-flash-lite (lab 2.5 Flash returned 404).
+Raw outputs: gemini-results.json and gemini-full-results.json.
+Semantic review: B6 still attributes inconsistent readings to sources not established by the fixture; HITL required.
+This file is a summary of observed tool results, not a raw API transcript.
+Local mocks do not prove Gemini boundary compliance.
+
+Final full autograder: 10.00 / 10.00, exit code 0.
+All four deliverables, system prompt, SDK, adversarial cases, live execution and boundary checks passed.
+A preceding run returned 8/10 due to one intermittent API failure; rerun after a pause passed.
+This is the repository's automated score, not the instructor's final rubric grade.
