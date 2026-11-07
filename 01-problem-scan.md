@@ -136,7 +136,7 @@
 │   ──> 5. Cập nhật trạng thái cho cư dân
 │
 │ Bước nào tốn thời gian/lỗi nhất? Bước 2–3 - đọc & phân loại
-│   (⏱ ~5 phút/yêu cầu; ~15% giao nhầm bộ phận; tồn đọng ngoài giờ
+│   (⏱ ~10 phút/yêu cầu (5 phút đọc + 5 phút phân loại); ~15% giao nhầm bộ phận; tồn đọng ngoài giờ
 │   hành chính).
 │ AI có thể nhảy vào hỗ trợ ở bước nào? Bước 2–3: LLM đọc nội dung,
 │   trích xuất {loại sự cố, vị trí, mức độ khẩn, bộ phận} ──> tạo
@@ -144,7 +144,7 @@
 │   ──> rule escalate ngay lên hotline trực, không chờ AI.
 │
 │ Đo thành công bằng gì (Metric có số)?
-│   - Thời gian từ nhận yêu cầu ──> giao đúng bộ phận: ~30 phút ──> dưới 5 phút
+│   - Thời gian từ cư dân bắt đầu gửi yêu cầu ──> nhận thông báo đã giao đúng bộ phận: mục tiêu P90 dưới 5 phút; đường chuẩn giả định hiện tại ~30 phút, chưa đo P90
 │   - ≥ 90% ticket phân loại đúng bộ phận ngay lần đầu
 │   - 100% sự cố khẩn cấp được escalate trong vòng 1 phút
 │
@@ -155,3 +155,6 @@
 ```
 
 **Tự phản biện:** Nếu app đã có form dropdown chọn loại sự cố thì rule-based có thể đủ cho kênh app; LLM chỉ thực sự cần cho kênh văn bản tự do (Zalo, hotline đã chép lời, mô tả mơ hồ như "nhà có mùi khét"). Cần đo tỷ lệ yêu cầu đến từ kênh tự do trước khi đầu tư.
+
+
+**Scope MVP của Card #3:** Chỉ xử lý văn bản từ App Resident và Zalo. Ảnh, hotline và tiếp nhận trực tiếp là bối cảnh workflow hiện tại, chưa được tự động hóa trong MVP. Trong toàn bộ pilot, mọi phiếu thông thường và tin nhắn đều phải được lễ tân duyệt trước khi giao việc/gửi; nhánh khẩn cấp chuyển người theo quy trình được phê duyệt.

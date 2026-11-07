@@ -57,7 +57,7 @@ Quy trình hiện tại tại quầy lễ tân / CSKH của ban quản lý một
                                                └───────────────┘
 
 🔴 Bottleneck   🔄 Handoff
-⏱ Tổng thời gian từ khi nhận yêu cầu đến khi giao đúng bộ phận: ~30 phút/lượt
+⏱ Tổng đường chuẩn: từ cư dân bắt đầu gửi yêu cầu đến nhận thông báo đã giao đúng bộ phận: ~30 phút/lượt
    (chưa tính các ca giao nhầm và yêu cầu gửi ngoài giờ hành chính phải chờ đến sáng hôm sau).
 ```
 
@@ -73,11 +73,11 @@ Quy trình hiện tại tại quầy lễ tân / CSKH của ban quản lý một
 | Field | Nội dung chi tiết |
 |---|---|
 | **1. Actor / Operator** | **Operator:** Nhân viên lễ tân / CSKH thuộc Ban quản lý tòa nhà Vinhomes (trực tiếp tiếp nhận và phân loại). **Stakeholder bị ảnh hưởng:** Cư dân (chờ xử lý), các tổ kỹ thuật (điện, nước, thang máy, điều hòa, vệ sinh, an ninh) nhận việc sai hoặc muộn. |
-| **2. Current Workflow** | Cư dân gửi yêu cầu qua 4 kênh (App Vinhomes Resident, hotline, nhóm Zalo tòa nhà, quầy lễ tân). Lễ tân đọc nội dung, nhắn hỏi lại nếu thiếu thông tin, tự xác định loại sự cố và mức độ khẩn, tạo ticket trên phần mềm quản lý vận hành, sau đó gọi/nhắn Zalo cho trưởng bộ phận để giao việc và cập nhật lại cho cư dân. 5 bước, hoàn toàn thủ công, trung bình **~30 phút** từ lúc nhận đến lúc giao đúng bộ phận. |
-| **3. Bottleneck** | **Bước 2 – 3:** Đọc hiểu văn bản tự do, trích xuất thông tin (căn hộ, vị trí, loại sự cố) và phân loại bộ phận/mức độ khẩn - mất ~10 phút/yêu cầu, sai bộ phận ~15%. **Bước 4:** Handoff thủ công qua điện thoại, chờ trung bình ~15 phút. Đây là bước **cần xử lý ngôn ngữ tự nhiên nhiều nhất**. |
+| **2. Current Workflow** | Cư dân gửi yêu cầu qua 4 kênh (App Vinhomes Resident, hotline, nhóm Zalo tòa nhà, quầy lễ tân). Lễ tân đọc nội dung, nhắn hỏi lại nếu thiếu thông tin, tự xác định loại sự cố và mức độ khẩn, tạo ticket trên phần mềm quản lý vận hành, sau đó gọi/nhắn Zalo cho trưởng bộ phận để giao việc và cập nhật lại cho cư dân. 5 bước do con người xử lý, đường chuẩn giả định **~30 phút** từ lúc cư dân bắt đầu gửi yêu cầu đến khi nhận thông báo đã giao đúng bộ phận. Đây không phải trung bình hoặc P90 thực đo. |
+| **3. Bottleneck** | **Bước 2 – 3:** Đọc hiểu văn bản tự do, trích xuất thông tin (căn hộ, vị trí, loại sự cố) và phân loại bộ phận/mức độ khẩn - mất ~10 phút/yêu cầu, sai bộ phận ~15%. **Bước 4:** Handoff thủ công qua điện thoại, chờ trung bình ~15 phút. Phần cần xử lý ngôn ngữ tự nhiên nhiều nhất là **bước 2–3**; bước 4 chủ yếu là chờ và chuyển giao. |
 | **4. Business Impact** | Giả định một khu ~10.000 căn hộ nhận **~300 yêu cầu/ngày**. Thời gian xử lý bước 2 – 3 là 300 × 10 phút = **50 giờ công/ngày (~6 FTE)** chỉ để đọc và phân loại. ~45 ticket/ngày bị giao nhầm, mỗi ticket chậm thêm 30 – 60 phút. Sự cố khẩn cấp (kẹt thang máy, rò điện, ngập nước) bị lẫn trong hàng đợi chung, có rủi ro an toàn. Xử lý chậm có thể ảnh hưởng CSAT; chưa có dữ liệu để xếp hạng nguyên nhân đánh giá thấp trên App Resident. |
-| **5. Success Metric** | **Efficiency:** Thời gian từ nhận yêu cầu → giao đúng bộ phận giảm từ **~30 phút xuống dưới 5 phút** (P90). **Quality:** **≥ 90%** ticket được phân loại đúng bộ phận ngay lần đầu (so với ~85% hiện tại); **≥ 95%** trích xuất đúng mã căn hộ. **Safety:** **100%** sự cố khẩn cấp (thang máy, điện, cháy, ngập, khí gas) được escalate lên hotline trực trong vòng **1 phút**, recall nhóm khẩn cấp **= 100%** (chấp nhận báo động nhầm). **Workload:** Giảm ≥ 60% thời gian lễ tân dành cho phân loại. |
-| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** Đọc nội dung yêu cầu (văn bản, ảnh đính kèm); trích xuất `{căn hộ, vị trí, loại sự cố, mô tả}`; đề xuất bộ phận và mức độ ưu tiên kèm điểm tin cậy; tạo **ticket nháp** (`status = DRAFT`); soạn **nháp** tin nhắn xác nhận đã tiếp nhận cho cư dân. **AI TUYỆT ĐỐI KHÔNG ĐƯỢC:** (1) Cam kết thời gian hoàn thành sửa chữa, chi phí, bồi thường hay miễn phí dịch vụ; (2) Hạ mức ưu tiên hoặc trì hoãn một yêu cầu đã khớp rule khẩn cấp; (3) Tự đóng / hủy ticket; (4) Trả lời các vấn đề phí dịch vụ, tranh chấp, pháp lý - phải chuyển cho nhân viên; (5) Tiết lộ thông tin của cư dân/căn hộ khác; (6) Hướng dẫn cư dân tự sửa thiết bị điện, gas, thang máy. **ĐIỂM CẦN DUYỆT (HITL):** Ticket có confidence < 0.8; mọi ticket khẩn cấp (con người xác nhận *sau* khi rule đã escalate); yêu cầu có phát sinh phí; mọi tin nhắn gửi cư dân trong 4 tuần đầu pilot. |
+| **5. Success Metric** | **Efficiency:** Đo từ lúc cư dân bắt đầu gửi yêu cầu đến lúc nhận thông báo đã giao đúng bộ phận: **mục tiêu P90 dưới 5 phút** trên cùng nhóm yêu cầu văn bản App/Zalo. Đường chuẩn hiện tại là **30 phút giả định**, chưa phải P90; phải đo P90 thủ công cùng điểm đầu/cuối trong shadow mode trước khi tính mức cải thiện. **Quality:** **≥ 90%** ticket được phân loại đúng bộ phận ngay lần đầu (so với ~85% hiện tại); **≥ 95%** trích xuất đúng mã căn hộ. **Safety:** **100%** sự cố khẩn cấp (thang máy, điện, cháy, ngập, khí gas) được escalate lên hotline trực trong vòng **1 phút**, recall nhóm khẩn cấp **= 100%** (chấp nhận báo động nhầm). **Workload:** Giảm ≥ 60% thời gian lễ tân dành cho phân loại. |
+| **6. Operational Boundary** | **AI ĐƯỢC PHÉP:** Đọc văn bản từ App Resident/Zalo; không phân tích ảnh, âm thanh hoặc hotline trong MVP; trích xuất `{căn hộ, vị trí, loại sự cố, mô tả}`; đề xuất bộ phận và mức độ ưu tiên kèm điểm tin cậy; tạo **ticket nháp** (`status = DRAFT`); soạn **nháp** tin nhắn xác nhận đã tiếp nhận cho cư dân. **AI TUYỆT ĐỐI KHÔNG ĐƯỢC:** (1) Cam kết thời gian hoàn thành sửa chữa, chi phí, bồi thường hay miễn phí dịch vụ; (2) Hạ mức ưu tiên hoặc trì hoãn một yêu cầu đã khớp rule khẩn cấp; (3) Tự đóng / hủy ticket; (4) Trả lời các vấn đề phí dịch vụ, tranh chấp, pháp lý - phải chuyển cho nhân viên; (5) Tiết lộ thông tin của cư dân/căn hộ khác; (6) Hướng dẫn cư dân tự sửa thiết bị điện, gas, thang máy. **ĐIỂM CẦN DUYỆT (HITL):** **100% phiếu thông thường và mọi tin nhắn gửi cư dân trong toàn bộ pilot** đều cần lễ tân duyệt trước khi giao việc/gửi. Confidence <0.8, thiếu thông tin hoặc có phát sinh phí phải chuyển xử lý thủ công. Nhánh khẩn cấp chuyển người ngay theo quy trình đã được phê duyệt, trực ban xác minh sau cảnh báo. |
 
 ---
 
@@ -107,7 +107,7 @@ Quy trình hiện tại tại quầy lễ tân / CSKH của ban quản lý một
 │ Bước 1        │      │ Bước 2            │
 │ Cư dân gửi    │ ───→ │ ⚙️ RULE: quét từ   │── Khớp khẩn cấp ──→ ┌─────────────────────────┐
 │ yêu cầu       │      │ khóa khẩn cấp     │                     │ 🚨 Escalate ngay lên     │
-│ (mọi kênh)    │      │ (< 1 giây)        │                     │ hotline trực + tổ KT    │
+│ (App/Zalo)    │      │ (< 1 giây)        │                     │ hotline trực + tổ KT    │
 └───────────────┘      └───────────────────┘                     │ (không chờ LLM)         │
                                │ Không khẩn cấp                    └─────────────────────────┘
                                ▼                                              │
@@ -151,7 +151,7 @@ Quy trình hiện tại tại quầy lễ tân / CSKH của ban quản lý một
 
 🔵 AI Step   🟢 Human Step (HITL)   ↩️ Fallback   ⚙️ Rule (deterministic)
 
-⏱ Thời gian dự kiến: ~10 giây (AI) + ~1 phút (lễ tân duyệt) + đẩy queue tự động ≈ dưới 5 phút/lượt.
+⏱ Kịch bản mục tiêu: 3 phút cư dân nhập/gửi + ~10 giây AI + ~1 phút lễ tân duyệt + ≤40 giây đẩy queue và gửi thông báo. P90 đầu-cuối dưới 5 phút cần đo thực tế, không suy ra từ thời gian API; ca hỏi lại/fallback trong scope vẫn phải được tính.
 ```
 
 ### Cơ chế Fallback
@@ -208,3 +208,10 @@ Quy trình hiện tại tại quầy lễ tân / CSKH của ban quản lý một
 - Confidence 0,8 là ngưỡng thiết kế cần hiệu chỉnh trên tập có nhãn; không đồng nghĩa xác suất đúng 80%. Rule từ khóa có thể bỏ sót, cần đo cả recall và báo động nhầm.
 - Pilot áp dụng **100% người duyệt** trước giao việc/gửi thông báo đối với phiếu thông thường; nhánh cảnh báo khẩn cấp dùng quy trình chuyển người riêng được phê duyệt. Xử lý ảnh để ngoài MVP văn bản, không khẳng định prototype đã đọc ảnh.
 - Mục tiêu dưới 5 phút phụ thuộc cả phân loại lẫn cơ chế queue giao việc; không được quy toàn bộ cải thiện cho LLM.
+
+
+### Quy ước đo thống nhất
+
+- **t0:** cư dân bắt đầu thao tác nhập/gửi yêu cầu (bước 1); cần ghi nhận bằng đo phiên thử có người dùng hoặc telemetry được phép. **t1:** cư dân nhận thông báo phiếu đã được giao đúng bộ phận (hết bước 5). Nếu không đo được t0, phải báo thiếu số đo, không thay bằng thời điểm server nhận.
+- **Đường chuẩn giả định:** 3 + 5 + 5 + 15 + 2 = 30 phút; bước 2–3 là 10 phút. Số này không phải baseline P90 đã đo. Đo thủ công và AI cùng điểm đầu/cuối, cùng tập yêu cầu App/Zalo; ghi riêng thời gian nhập, xử lý, review, chờ và thông báo.
+- Workflow hiện tại và PNG mô tả các kênh đang xét trong bối cảnh giả định; future flow/MVP chỉ áp dụng văn bản App/Zalo. Ảnh, hotline và tiếp nhận trực tiếp nằm ngoài MVP. Toàn bộ pilot cần duyệt mọi phiếu thông thường và mọi tin nhắn trước khi phát hành.
