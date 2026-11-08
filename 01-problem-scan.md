@@ -1,90 +1,82 @@
-# Lab 02 — Problem Scan & Quick Assessment
 
-> Bộ tài liệu nhóm được chọn lọc từ bài của Đồng Ngọc Phúc. Việc sử dụng làm bài nhóm không đồng nghĩa mọi thành viên đã thực hiện cùng một thử nghiệm. [Bài nguồn và bằng chứng cá nhân](https://github.com/dnphuc04/VinUni_Codelab_Day02/tree/398cf61c0e05594e0acd30d20fe081224bbddb96). Code và thư mục `evidence/` được giữ trên nhánh cá nhân, không đưa vào `main`.
+**Học viên** Nguyễn Việt Hưng
+**MSV** 2A202603411
 
-**Hình thức:** Bài báo cáo nhóm — Lab 02  
-**Đại diện tổng hợp:** Đồng Ngọc Phúc — 2A202603399  
+# 🔍 Phase 1 — SCAN: Quét cơ hội 
+Sử dụng 4 lenses: **Lặp lại**, **Tốn thời gian**, **AI có thể tốt hơn**, **Pain từ người khác**
 
-> Các bài toán, workflow, baseline và mục tiêu định lượng là giả định phục vụ lab, chưa được xác nhận bằng khảo sát doanh nghiệp.
+### 📝 List bài toán của tôi:
+| # | Subsidiary (VinFast/Xanh SM...) | Lens | Mô tả ngắn bài toán |
+|---|----------------------------------|------|---------------------|
+| 1 |VINMEC |AI có thể tốt hơn| Tự động hóa ghi chép hồ sơ bệnh án và nhập liệu lâm sàng|
+| 2 |VINMEC|Pain từ người khác| Bệnh nhân quên uống thuốc hoặc không tuân thủ liệu trình|
+| 3 |VINMEC |Lặp lại| Tiếp nhận bệnh nhân, đặt lịch và điều phối lịch khám|
+| 4 |VINMEC |Lặp lại| Xử lý bảo hiểm, phê duyệt dịch vụ và đối soát hồ sơ thanh toán|
+| 5 |VINMEC |AI có thể tốt hơn|Quản lý tồn kho thuốc, vật tư y tế và dự báo nhu cầu sử dụng|
 
-## Phase 1 — SCAN: Quét cơ hội (bản tổng hợp nhóm)
+---
 
-Sử dụng 4 lenses: **Lặp lại**, **Tốn thời gian**, **AI có thể tốt hơn**, **Pain từ người khác**.
+# 🃏 Phase 2 — QUICK-ASSESS 
 
-| # | Công ty | Lens | Bài toán / Điểm nghẽn |
-|---|---|---|---|
-| 1 | Xanh SM | Tốn thời gian | Khi tài xế báo sự cố pin bằng tin nhắn tự do, điều phối viên phải đọc, hỏi lại thông tin thiếu, tra cứu dữ liệu và soạn hướng dẫn thủ công. |
-| 2 | Vinhomes | Lặp lại | Nhân viên tiếp nhận phải đọc và phân loại nhiều phản ánh cư dân, xác định tòa nhà và chuyển đến bộ phận phụ trách; tin nhắn thiếu thông tin dễ bị chuyển sai hoặc phải hỏi lại. |
-| 3 | Vinpearl | AI có thể tốt hơn | Nhân viên phải soạn phản hồi cho nhiều đánh giá của khách; câu trả lời mẫu có thể chưa phản ánh đúng vấn đề và cảm xúc trong từng đánh giá. |
-| 4 | VinFast | Lặp lại | Nhân viên tài chính đối chiếu bảng kê phiên sạc với hóa đơn đối tác, xử lý thủ công các chênh lệch về mã giao dịch, số tiền hoặc dữ liệu thiếu. |
-| 5 | Vinmec | Tốn thời gian | Nhân viên phụ trách lịch hẹn đọc yêu cầu qua tin nhắn, trích xuất chuyên khoa khách muốn đặt, thời gian mong muốn và thông tin liên hệ rồi nhập lại vào hệ thống. |
-| 6 | Xanh SM | Pain từ người khác | Ghi chú hủy chuyến của tài xế có cách diễn đạt không thống nhất, khiến bộ phận vận hành mất thời gian tổng hợp nguyên nhân và phát hiện vấn đề lặp lại. |
+Chọn **top 3 bài toán** là bài toán **1**, **2** và **3** từ list bài toán trên.
 
-**Sàng lọc ban đầu:**
-
-- Chọn **#1, #2 và #3** để phân tích nhanh vì có đầu vào ngôn ngữ tự nhiên, đầu ra dễ kiểm tra và có thể giữ bước phê duyệt của con người.
-- Với **#4**, nên thử đối chiếu bằng rule trước; chỉ cân nhắc AI khi phải xử lý chứng từ hoặc mô tả không có cấu trúc.
-- Với **#5**, cần kiểm soát dữ liệu cá nhân và giới hạn rõ chức năng hành chính, không suy luận chẩn đoán.
-- Với **#6**, cần tập dữ liệu có nhãn đáng tin cậy để đánh giá chất lượng phân loại.
-
-## Phase 2 — QUICK-ASSESS: 3 Quick Problem Cards
-
-### Card #1 — Trợ lý soạn nháp hỗ trợ sự cố pin
+### Card 1: Tự động hóa ghi chép hồ sơ bệnh án và nhập liệu lâm sàng (AI Medical Scribe)
 
 | Trường | Nội dung |
 |---|---|
-| **Bài toán trong một câu** | Hỗ trợ điều phối viên soạn nháp phương án xử lý khi tài xế báo sự cố pin, dựa trên thông tin đã được xác minh. |
-| **Công ty thành viên** | Xanh SM |
-| **Actor** | Điều phối viên xử lý sự cố; tài xế là người chờ hỗ trợ. |
-| **Workflow hiện tại — giả định** | 1. Nhận tin nhắn tài xế → 2. Xác minh mức pin, vị trí và thông tin xe → 3. Tra cứu phương án hỗ trợ → 4. Soạn hướng dẫn → 5. Kiểm tra và gửi cho tài xế. |
-| **Bottleneck** | Tổng hợp thông tin rời rạc và soạn hướng dẫn phù hợp từng tình huống; giả định mất **5 phút/lượt** ở bước soạn nháp. |
-| **AI Solution** | LLM trích xuất thông tin từ báo cáo, chỉ ra dữ liệu thiếu và soạn nháp dựa trên dữ liệu được cung cấp. Code áp dụng quy tắc ngưỡng pin và kiểm tra output. |
-| **Metric mục tiêu** | Trên 30 tình huống giả lập: giảm trung vị thời gian soạn nháp từ **5 phút xuống ≤2 phút**; **≥90%** bản nháp được người đánh giá chấp nhận mà không sửa nội dung chính; **0 vi phạm** ranh giới trong bộ test. |
-| **Quick Architecture** | **Rule + LLM Feature**. Rule xử lý ngưỡng pin và điều kiện bắt buộc; LLM hỗ trợ ngôn ngữ. |
-| **Operational Boundary** | Output bắt đầu bằng `[DRAFT_ONLY]`; không tự gửi tin hoặc điều xe. Theo quy tắc lab, pin dưới 5% phải đề xuất `dispatch_mobile_charger`, không đề xuất trạm xa hơn 5 km. Không tự bịa vị trí hay trạng thái trạm sạc. |
-| **HITL / Fallback** | Điều phối viên xác minh và duyệt trước khi hành động. Thiếu dữ liệu, output lỗi hoặc tình huống ngoài phạm vi thì chuyển sang xử lý thủ công. |
+| **Bài toán** | Ứng dụng AI để tự động ghi nhận, chuyển đổi và cấu trúc hóa nội dung trao đổi giữa bác sĩ và bệnh nhân thành bản nháp hồ sơ bệnh án điện tử (EMR), giảm thời gian ghi chép và nhập liệu thủ công cho đội ngũ y tế. |
+| **Công ty thành viên** | VINMEC |
+| **Actor** | Bác sĩ khám bệnh; điều dưỡng và nhân viên y tế; bộ phận quản lý hồ sơ bệnh án; bệnh nhân. |
+| **Workflow hiện tại** | 1. Bác sĩ tiếp nhận và trao đổi với bệnh nhân trong quá trình khám. <br> 2. Bác sĩ ghi nhận triệu chứng, tiền sử bệnh, kết quả thăm khám và các thông tin lâm sàng. <br> 3. Bác sĩ nhập các thông tin này vào hệ thống HIS/EMR, thường kết hợp giữa nhập liệu thủ công và lựa chọn biểu mẫu có sẵn. <br> 4. Bác sĩ hoàn thiện hồ sơ, chỉ định xét nghiệm, chẩn đoán và kế hoạch điều trị. <br> 5. Bác sĩ kiểm tra, chỉnh sửa và xác nhận hồ sơ bệnh án. |
+| **Bước nào tốn thời gian nhất / kém hiệu quả nhất?** | **Bước 2 và 3:** Bác sĩ phải vừa tập trung trao đổi, thăm khám bệnh nhân vừa ghi chép và nhập liệu vào hệ thống. Việc nhập lại thông tin từ ghi chú hoặc biểu mẫu, cập nhật các trường dữ liệu và hoàn thiện nội dung hồ sơ có thể làm tăng thời gian hành chính, giảm thời gian tương tác trực tiếp với bệnh nhân và phát sinh nguy cơ thiếu sót thông tin. |
+| **AI có thể hỗ trợ bước nào?** | **Bước 1, 2 và 3:** <br> - Sử dụng Speech-to-Text để chuyển đổi hội thoại giữa bác sĩ và bệnh nhân thành văn bản. <br> - Sử dụng Medical NLP/LLM để nhận diện và trích xuất thông tin lâm sàng như triệu chứng, tiền sử bệnh, thuốc đang sử dụng, kết quả thăm khám và chỉ định. <br> - Tự động phân loại và cấu trúc hóa thông tin theo các trường trong mẫu hồ sơ bệnh án . <br> - Tạo bản nháp ghi chép lâm sàng và đề xuất điền các trường tương ứng trên hệ thống HIS/EMR. <br> - Phát hiện thông tin còn thiếu, nội dung không nhất quán hoặc các trường chưa được hoàn thiện để bác sĩ kiểm tra. <br> - Bác sĩ rà soát, chỉnh sửa và xác nhận trước khi lưu chính thức vào hồ sơ bệnh án. |
+| **Metric để đo lường hiệu quả** | - **Documentation Time:** Thời gian trung bình bác sĩ dành cho việc hoàn thiện hồ sơ bệnh án trên mỗi lượt khám. <br>  - **Documentation Completeness:** Tỷ lệ hồ sơ có đầy đủ các trường thông tin bắt buộc. <br> - **AI Suggestion Acceptance Rate:** Tỷ lệ nội dung do AI đề xuất được bác sĩ chấp nhận sau khi rà soát. <br> - **Correction Rate:** Tỷ lệ nội dung AI tạo ra cần bác sĩ chỉnh sửa. <br> - **Physician Satisfaction:** Mức độ hài lòng của bác sĩ khi sử dụng hệ thống. <br> - **Clinical Safety:** Tỷ lệ lỗi nghiêm trọng liên quan đến sai lệch thông tin lâm sàng trong bản nháp được AI tạo ra. |
+| **Quick Architecture** | **Ambient AI Scribe + Medical NLP/LLM + HIS/EMR Integration:** <br> - **Audio Capture:** Thu nhận hội thoại giữa bác sĩ và bệnh nhân theo cơ chế được bệnh nhân đồng ý. <br> - **Speech-to-Text (STT):** Chuyển đổi giọng nói thành văn bản, hỗ trợ nhận diện thuật ngữ y khoa. <br> - **Medical NLP/LLM:** Trích xuất thông tin lâm sàng, nhận diện thực thể y tế và cấu trúc hóa nội dung theo mẫu hồ sơ. <br> - **Clinical Validation Layer:** Kiểm tra tính đầy đủ, nhất quán và đánh dấu các thông tin chưa rõ ràng để bác sĩ xác minh. <br> - **EMR Integration:** Đưa bản nháp vào các trường tương ứng trên hệ thống HIS/EMR thông qua API hoặc giao diện tích hợp. <br> - **Physician Review & Approval:** Bác sĩ kiểm tra, chỉnh sửa và xác nhận trước khi lưu hồ sơ chính thức. <br> - **Audit Log:** Lưu vết nội dung AI đề xuất, nội dung được chỉnh sửa và người xác nhận. |
 
-### Card #2 — Phân loại và đề xuất chuyển phản ánh cư dân
+**KPI mục tiêu đề xuất:**
+- Giảm ít nhất 20% thời gian hoàn thiện hồ sơ trên mỗi lượt khám.
+- Documentation Completeness đạt ≥ 95% đối với các trường thông tin thuộc phạm vi thử nghiệm.
+- AI Suggestion Acceptance Rate đạt ≥ 80%.
+- 0 lỗi nghiêm trọng được AI tự động ghi vào hồ sơ chính thức mà không qua xác nhận của bác sĩ.
 
-| Trường | Nội dung |
-|---|---|
-| **Bài toán trong một câu** | Hỗ trợ nhân viên phân loại phản ánh cư dân và đề xuất bộ phận tiếp nhận dựa trên danh mục trách nhiệm có sẵn. |
-| **Công ty thành viên** | Vinhomes |
-| **Actor** | Nhân viên chăm sóc cư dân và bộ phận vận hành tòa nhà. |
-| **Workflow hiện tại — giả định** | 1. Nhận phản ánh → 2. Đọc và xác định vấn đề, địa điểm → 3. Hỏi bổ sung thông tin → 4. Chọn bộ phận phụ trách → 5. Tạo phiếu và chuyển xử lý. |
-| **Bottleneck** | Đọc nội dung tự do và xác định nhóm xử lý; giả định mất **4 phút/phiếu**, đặc biệt với phản ánh chứa nhiều vấn đề. |
-| **AI Solution** | LLM đề xuất nhãn, trích xuất địa điểm và tóm tắt yêu cầu. Rule ánh xạ nhãn sang bộ phận theo danh mục được cung cấp. |
-| **Metric mục tiêu** | Trên 50 phản ánh giả lập có nhãn tham chiếu: phân loại đúng **≥90%**; giảm trung vị thời gian phân loại từ **4 phút xuống ≤1,5 phút**; **100%** trường hợp thiếu địa điểm được đánh dấu cần bổ sung. |
-| **Quick Architecture** | **Rule + LLM Feature**. LLM hiểu nội dung; rule giới hạn nhãn và tuyến chuyển. |
-| **Operational Boundary** | Chỉ đề xuất phân loại và bản nháp phiếu; không tự đóng phiếu, cam kết thời hạn hoặc quyết định bồi thường. Các tình huống khẩn cấp phải được chuyển cho người phụ trách theo quy trình có sẵn. |
-| **HITL / Fallback** | Nhân viên duyệt tuyến chuyển. Phản ánh nhiều vấn đề, mơ hồ hoặc ngoài danh mục được đưa vào hàng chờ xử lý thủ công. |
 
-### Card #3 — Soạn nháp phản hồi đánh giá khách sạn
+### Card 2: AI Medication Reminder Assistant – Trợ lý AI nhắc nhở và theo dõi việc sử dụng thuốc
 
 | Trường | Nội dung |
 |---|---|
-| **Bài toán trong một câu** | Hỗ trợ nhân viên soạn phản hồi phù hợp với nội dung đánh giá của khách, tuân thủ hướng dẫn và chính sách được cung cấp. |
-| **Công ty thành viên** | Vinpearl |
-| **Actor** | Nhân viên chăm sóc khách hàng hoặc quản lý phụ trách phản hồi đánh giá. |
-| **Workflow hiện tại — giả định** | 1. Đọc đánh giá → 2. Xác định vấn đề chính → 3. Kiểm tra thông tin và chính sách liên quan → 4. Soạn phản hồi → 5. Quản lý duyệt và đăng. |
-| **Bottleneck** | Viết phản hồi vừa đúng vấn đề vừa phù hợp giọng điệu thương hiệu; giả định mất **8 phút/đánh giá** ở bước soạn. |
-| **AI Solution** | LLM tóm tắt các vấn đề và soạn phản hồi dựa trên đánh giá, dữ kiện đã xác minh và chính sách được cung cấp. |
-| **Metric mục tiêu** | Trên 30 đánh giá giả lập: giảm trung vị thời gian soạn từ **8 phút xuống ≤3 phút**; **≥90%** bản nháp đề cập đầy đủ vấn đề chính theo checklist của người đánh giá; **0 cam kết bồi thường trái chính sách** trong bộ test. |
-| **Quick Architecture** | **LLM Feature** kết hợp kiểm tra các nội dung bị cấm. Không cần Agent vì tác vụ chỉ tạo bản nháp từ đầu vào có sẵn. |
-| **Operational Boundary** | Không tự đăng phản hồi; không bịa kết quả điều tra, tiết lộ dữ liệu khách hoặc tự hứa hoàn tiền, nâng hạng, tặng voucher. |
-| **HITL / Fallback** | Nhân viên duyệt mọi bản nháp. Phản ánh nghiêm trọng hoặc thiếu căn cứ trả lời được chuyển cho quản lý xử lý. |
+| **Bài toán** | Xây dựng trợ lý AI hỗ trợ bệnh nhân ghi nhớ lịch uống thuốc, hiểu hướng dẫn sử dụng và theo dõi việc tuân thủ điều trị sau khi khám tại VINMEC. |
+| **Công ty thành viên** | VINMEC |
+| **Actor** | Bệnh nhân sau khám và được kê đơn; người nhà/người chăm sóc; bác sĩ và dược sĩ theo dõi điều trị. |
+| **Workflow hiện tại** | 1. Bệnh nhân khám và nhận đơn thuốc từ bác sĩ. <br> 2. Bệnh nhân tự ghi nhớ hoặc tự thiết lập lịch uống thuốc. <br> 3. Bệnh nhân mua thuốc và sử dụng tại nhà theo hướng dẫn. <br> 4. Bệnh nhân tự theo dõi việc uống thuốc, dễ quên liều hoặc sai thời điểm. <br> 5. Khi có thắc mắc hoặc vấn đề phát sinh, bệnh nhân chủ động liên hệ bác sĩ/dược sĩ. <br> 6. Bệnh nhân tái khám theo lịch hẹn. |
+| **Bước nào tốn thời gian nhất / kém hiệu quả nhất?** | **Bước 2, 3, 4 và 5:** Bệnh nhân phải tự quản lý nhiều loại thuốc với liều lượng, tần suất và thời gian sử dụng khác nhau. Việc ghi nhớ thủ công dễ dẫn đến quên liều, dùng thuốc không đúng lịch hoặc không hiểu rõ hướng dẫn. Nhân viên y tế có thể phát sinh thêm thời gian giải đáp các câu hỏi lặp lại về cách sử dụng thuốc. |
+| **AI có thể hỗ trợ bước nào?** | **Bước 2, 3, 4 và 5:** <br> - Tự động tiếp nhận và trích xuất thông tin từ đơn thuốc điện tử đã được bác sĩ xác nhận. <br> - Tạo lịch uống thuốc dựa trên chỉ định đã kê bằng Rule-based Schedule Engine. <br> - Gửi thông báo nhắc uống thuốc qua ứng dụng, SMS hoặc Zalo. <br> - Cho phép bệnh nhân xác nhận đã uống, hoãn nhắc hoặc báo bỏ lỡ liều. <br> - Sử dụng LLM kết hợp RAG để giải thích đơn thuốc và trả lời câu hỏi dựa trên nguồn thông tin y khoa được VINMEC phê duyệt. <br> - Phát hiện tình trạng bỏ lỡ nhiều liều hoặc dấu hiệu bất thường được bệnh nhân khai báo để chuyển tiếp cho nhân viên y tế. |
+| **Metric để đo lường hiệu quả** | - **Medication Adherence Rate:** Tỷ lệ liều thuốc bệnh nhân tự xác nhận đã uống trên tổng số liều đến hạn. <br> - **Patient Activation Rate:** Tỷ lệ bệnh nhân kích hoạt và thiết lập thành công trợ lý. <br> - **Support Call Reduction:** Mức giảm số lượng cuộc gọi hỏi đáp về hướng dẫn sử dụng thuốc. <br> - **Patient Satisfaction:** Mức độ hài lòng của bệnh nhân. <br> - **Medication Safety:** Số lỗi nghiêm trọng trong việc tạo lịch nhắc thuốc; mục tiêu là 0 lỗi do hệ thống tự ý thay đổi liều hoặc chỉ định. |
+| **Quick Architecture** | **Hybrid AI + Deterministic Workflow:** <br> - **HIS/EMR Integration:** Đồng bộ đơn thuốc đã được bác sĩ xác nhận. <br> - **OCR / Medical NLP:** Trích xuất và chuẩn hóa thông tin thuốc từ đơn thuốc. <br> - **Rule-based Schedule Engine:** Tạo lịch uống thuốc chính xác theo chỉ định. <br> - **Notification Service:** Gửi thông báo nhắc thuốc qua App/SMS/Zalo. <br> - **LLM + RAG:** Giải thích đơn thuốc và trả lời câu hỏi dựa trên kho tri thức y khoa được phê duyệt. <br> - **Adherence Dashboard:** Theo dõi lịch sử xác nhận uống thuốc và mức độ tuân thủ điều trị. |
+**KPI mục tiêu đề xuất:**
+- Patient Activation Rate ≥ 60%.
+- Medication Adherence Rate tăng ít nhất 10 điểm phần trăm so với baseline hoặc nhóm đối chứng.
+- Notification Delivery Rate ≥ 99%.
+- 0 lỗi nghiêm trọng trong việc tạo lịch nhắc thuốc.
 
-## Lựa chọn để Deep-Dive của bài nhóm
+### Card 3: Tiếp nhận bệnh nhân, đặt lịch và điều phối lịch khám (AI Patient Access & Appointment Scheduling)
 
-Chọn **Card #1 — Trợ lý soạn nháp hỗ trợ sự cố pin Xanh SM**.
+| Trường | Nội dung |
+|---|---|
+| **Bài toán** | Ứng dụng AI để tự động hóa quy trình tiếp nhận yêu cầu khám bệnh, tư vấn thông tin dịch vụ, đặt lịch và hỗ trợ điều phối lịch khám, giúp giảm thời gian chờ đợi của bệnh nhân và tối ưu hiệu suất sử dụng nguồn lực y tế tại VINMEC. |
+| **Công ty thành viên** | VINMEC |
+| **Actor** | Bệnh nhân; nhân viên tổng đài (Call Center); nhân viên lễ tân/tiếp đón; bác sĩ; điều dưỡng; nhân viên điều phối lịch khám. |
+| **Workflow hiện tại** | 1. Bệnh nhân tìm kiếm thông tin về chuyên khoa, bác sĩ, dịch vụ khám và chi phí. <br> 2. Bệnh nhân liên hệ VINMEC qua hotline, website, ứng dụng hoặc trực tiếp tại bệnh viện để yêu cầu đặt lịch. <br> 3. Nhân viên tiếp nhận xác định nhu cầu khám, thông tin bệnh nhân, chuyên khoa và bác sĩ phù hợp. <br> 4. Nhân viên kiểm tra lịch làm việc, khung giờ trống và khả năng tiếp nhận của bác sĩ/phòng khám trên hệ thống. <br> 5. Nhân viên xác nhận lịch hẹn, hướng dẫn bệnh nhân chuẩn bị trước khi khám. <br> 6. Bệnh nhân đến bệnh viện, thực hiện thủ tục tiếp đón và chờ đến lượt khám. <br> 7. Khi có thay đổi lịch hoặc bệnh nhân hủy/không đến, nhân viên cần cập nhật và điều phối lại lịch khám. |
+| **Bước nào tốn thời gian nhất / kém hiệu quả nhất?** | **Bước 2, 3, 4 và 7:** Nhân viên phải xử lý nhiều yêu cầu đặt lịch qua các kênh khác nhau, lặp lại các thao tác hỏi thông tin, xác định nhu cầu và kiểm tra lịch bác sĩ. Việc điều phối thủ công khi có lịch hủy, thay đổi hoặc bệnh nhân không đến có thể khiến khung giờ khám bị bỏ trống, tăng thời gian chờ và làm giảm hiệu suất sử dụng nguồn lực y tế. |
+| **AI có thể hỗ trợ bước nào?** | **Bước 1, 2, 3, 4, 5 và 7:** <br> - Sử dụng AI Chatbot/Voicebot để tiếp nhận yêu cầu đặt lịch 24/7 qua website, ứng dụng hoặc hotline. <br> - Sử dụng NLP/LLM để nhận diện nhu cầu khám, chuyên khoa, triệu chứng ban đầu và các yêu cầu về thời gian, địa điểm của bệnh nhân. <br> - Đề xuất chuyên khoa hoặc loại dịch vụ phù hợp dựa trên danh mục dịch vụ và quy tắc phân luồng đã được VINMEC phê duyệt; không thay thế chẩn đoán của bác sĩ. <br> - Kết nối hệ thống HIS/Appointment để truy vấn lịch trống theo bác sĩ, chuyên khoa, cơ sở và thời gian. <br> - Tự động đề xuất các khung giờ phù hợp và hỗ trợ bệnh nhân đặt, đổi hoặc hủy lịch. <br> - Gửi xác nhận lịch hẹn, hướng dẫn chuẩn bị trước khi khám và thông báo nhắc lịch qua App/SMS/Zalo. <br> - Phân tích lịch sử đặt lịch và tỷ lệ bệnh nhân không đến (No-show) để dự báo nguy cơ bỏ hẹn, hỗ trợ gửi nhắc lịch hoặc xác nhận lại lịch hẹn. <br> - Hỗ trợ điều phối lại các khung giờ bị hủy, đưa bệnh nhân trong danh sách chờ vào các slot còn trống theo quy tắc ưu tiên. |
+| **Metric để đo lường hiệu quả** | - **Appointment Booking Time:** Thời gian trung bình để hoàn tất một yêu cầu đặt lịch. <br> - **Booking Automation Rate:** Tỷ lệ yêu cầu đặt lịch được xử lý hoàn toàn hoặc phần lớn bởi hệ thống mà không cần nhân viên can thiệp. <br> - **Patient Waiting Time:** Thời gian bệnh nhân chờ từ khi đến bệnh viện đến khi được khám. <br> - **No-show Rate:** Tỷ lệ bệnh nhân không đến theo lịch đã đặt. <br> - **Slot Utilization Rate:** Tỷ lệ khung giờ khám được sử dụng trên tổng số khung giờ có thể cung cấp. <br> - **Rescheduling Success Rate:** Tỷ lệ yêu cầu đổi lịch được xử lý thành công. <br> - **Patient Satisfaction:** Mức độ hài lòng của bệnh nhân với quy trình đặt lịch và tiếp nhận. <br> - **Call Center Workload Reduction:** Mức giảm số lượng yêu cầu đặt lịch và hỏi đáp thông tin cần nhân viên xử lý thủ công. |
+| **Quick Architecture** | **AI Patient Access Agent + Appointment Optimization Engine + HIS Integration:** <br> - **Omnichannel Interface:** Tiếp nhận yêu cầu qua Website, Mobile App, Hotline, Chatbot và các kênh giao tiếp khác. <br> - **Speech-to-Text (STT):** Chuyển đổi yêu cầu bằng giọng nói thành văn bản đối với kênh Voicebot. <br> - **LLM + NLP:** Phân tích ý định, trích xuất thông tin bệnh nhân, nhu cầu khám, chuyên khoa và thời gian mong muốn. <br> - **Medical Service Knowledge Base (RAG):** Cung cấp thông tin về chuyên khoa, bác sĩ, dịch vụ, chi phí và hướng dẫn trước khi khám từ nguồn dữ liệu chính thức của VINMEC. <br> - **Appointment Engine:** Truy vấn lịch trống, kiểm tra điều kiện đặt lịch và xử lý đặt/đổi/hủy lịch theo quy tắc nghiệp vụ. <br> - **Scheduling Optimization:** Đề xuất phân bổ lịch khám dựa trên khả năng tiếp nhận, thời lượng khám, lịch làm việc và mức độ ưu tiên đã được quy định. <br> - **Notification Service:** Gửi xác nhận, nhắc lịch và thông báo thay đổi lịch khám. <br> - **HIS/CRM Integration:** Đồng bộ thông tin bệnh nhân, lịch hẹn và trạng thái tiếp nhận với các hệ thống hiện có. <br> - **Human Handover:** Chuyển tiếp cho nhân viên khi yêu cầu phức tạp, thông tin không đủ hoặc có dấu hiệu cần xử lý y tế khẩn cấp. |
 
-Lý do lựa chọn:
+**KPI mục tiêu đề xuất cho giai đoạn Pilot (cần xác nhận bằng baseline thực tế):**
+- Giảm ít nhất 30% thời gian xử lý trung bình một yêu cầu đặt lịch.
+- Booking Automation Rate đạt ≥ 50% đối với các yêu cầu đặt lịch đơn giản.
+- Giảm ít nhất 10% tỷ lệ No-show so với baseline hoặc nhóm đối chứng.
+- Appointment Booking Success Rate đạt ≥ 95%.
+- 0 trường hợp hệ thống tự ý đặt lịch sai bác sĩ, chuyên khoa hoặc khung giờ do lỗi xử lý nghiệp vụ.
 
-1. Khớp với bài tập Python và các ranh giới trong starter code.
-2. Phạm vi đủ hẹp để hoàn thành prototype bằng dữ liệu giả lập.
-3. Có thể phân chia rõ nhiệm vụ giữa rule, LLM và người phê duyệt.
-4. Có thể kiểm thử cụ thể bằng các tình huống dụ bỏ thẻ nháp, đề xuất trạm quá xa hoặc yêu cầu tự động gửi tin.
+**Giá trị kỳ vọng:** Chuyển đổi quy trình tiếp nhận và đặt lịch từ mô hình xử lý thủ công, phân tán qua nhiều kênh sang mô hình Patient Access đa kênh, tự động hóa và điều phối thông minh; giúp bệnh nhân tiếp cận dịch vụ thuận tiện hơn, đồng thời tối ưu công suất sử dụng bác sĩ và phòng khám.
 
-Card #2 và #3 vẫn có tiềm năng, nhưng cần bổ sung danh mục phân tuyến hoặc chính sách phản hồi để đánh giá đáng tin cậy.
-
-**Bước kiểm chứng tiếp theo:** xây dựng bộ tình huống giả lập có đáp án kỳ vọng, đo baseline thủ công và thử prototype. Kết quả trên dữ liệu giả lập chỉ chứng minh khả năng của bản mẫu trong phạm vi thử nghiệm, chưa đủ để kết luận sẵn sàng triển khai thực tế.
